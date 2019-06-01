@@ -1,0 +1,32 @@
+.pages-user-structure{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    .left{
+        width:400px;
+        position: absolute;
+        left:0;
+        top:0;
+        bottom:0;
+        z-index: 1;
+    }
+    .top{
+        position: absolute;
+        top:0;
+        height:50%;
+        right:0;
+        left:381px;
+        z-index: 2;
+        bottom:calc(50% + 10px);
+    }
+    .bottom{
+        position: absolute;
+        left:381px;
+        top:calc(50% - 10px);
+        right:0;
+        bottom:0;
+        z-index: 3;
+    }
+}

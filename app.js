@@ -26,7 +26,8 @@ let app = {
         return [
             '/user/list',
             '/user/permisions',
-            '/user/structure'
+            '/user/structure',
+            '/user/role'
         ];
     },
     ssr: {

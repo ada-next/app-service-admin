@@ -10,21 +10,22 @@ class StructureService extends Service {
 			topTableType: Table,
 			bottomTableType: Table,
 			treeOption: {
-				title:'组织机构',
+				title: '组织机构',
+				url: '/api/user/tree',
 				editURL: '',
-				check:false,
+				check: false,
 				editFields: [
 					{ type: Input, label: 'username', name: 'username' }
 				],
-				addURL: '',
+				addURL: '/api/user/tree/add',
 				addFields: [
-					{ type: Input, label: 'username', name: 'username' },
-					{ type: Input, label: 'password', name: 'password' }
+					{ type: Input, label: '部门名称', name: 'nodeName', required: true },
+					{ type: Input, label: '部门简介', name: 'nodeDesc' }
 				],
 				removeURL: ''
 			},
 			topTableOption: {
-				title:'组织角色',
+				title: '组织角色',
 				btns: [
 					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
 					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
@@ -35,7 +36,9 @@ class StructureService extends Service {
 				removeURL: '',
 				searchURL: '',
 				detailURL: '/detail.json',
-				borderLeft:false,
+				borderLeft: false,
+				borderBottom:false,
+				borderRight:false,
 				editFields: [
 					{ type: Input, label: 'username', name: 'username' }
 				],
@@ -63,7 +66,7 @@ class StructureService extends Service {
 				}
 			},
 			bottomTableOption: {
-				title:'组织人员',
+				title: '组织人员',
 				btns: [
 					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
 					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
@@ -74,7 +77,9 @@ class StructureService extends Service {
 				removeURL: '',
 				searchURL: '',
 				detailURL: '/detail.json',
-				borderLeft:false,
+				borderLeft: false,
+				borderTop:false,
+				borderRight:false,
 				editFields: [
 					{ type: Input, label: 'username', name: 'username' }
 				],

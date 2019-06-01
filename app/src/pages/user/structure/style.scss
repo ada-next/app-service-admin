@@ -1,32 +1,62 @@
-.pages-user-structure{
+@import "./../../../style/base";
+.pages-user-structure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .left {
+    width: 400px;
     position: absolute;
-    left:0;
-    top:0;
-    right:0;
-    bottom:0;
-    .left{
-        width:400px;
-        position: absolute;
-        left:0;
-        top:0;
-        bottom:0;
-        z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 381px;
+    bottom: 0;
+    z-index: 2;
+    .top {
+      position: absolute;
+      top: 0;
+      height: 50%;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      bottom: calc(50% + 10px);
     }
-    .top{
-        position: absolute;
-        top:0;
-        height:50%;
-        right:0;
-        left:381px;
-        z-index: 2;
-        bottom:calc(50% + 10px);
+    .border-center {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: calc(50% - 11px);
+      background: white;
+      z-index: 3;
+      height: 40px;
+      border-top: 1px solid rgba($divider-color-rgb, 0.6);
+      border-bottom: 1px solid rgba($divider-color-rgb, 0.6);
     }
-    .bottom{
-        position: absolute;
-        left:381px;
-        top:calc(50% - 10px);
-        right:0;
-        bottom:0;
-        z-index: 3;
+    .bottom {
+      position: absolute;
+      left: 0;
+      top: calc(50% - 10px);
+      right: 0;
+      bottom: 0;
+      z-index: 4;
     }
+  }
+  .border-right {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    bottom: 20px;
+    width: 20px;
+    border-radius: 0 0 50% 0;
+    box-shadow: 0 0 15px $divider-color;
+    z-index: 1;
+  }
 }

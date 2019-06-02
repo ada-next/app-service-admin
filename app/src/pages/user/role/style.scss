@@ -1,7 +1,39 @@
-.pages-user-role{
+@import "./../../../style/base";
+.pages-user-role {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .left {
     position: absolute;
     left: 0;
     top: 0;
+    bottom: 0;
+    right: calc(40% - 9px);
+    margin-right: -10px;
+  }
+  .right {
+    position: absolute;
+    top: 0;
     right: 0;
     bottom: 0;
+    width: 40%;
+    margin-left: -10px;
+    &.open {
+      bottom: 40px;
+    }
+  }
+  .bottom {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 20;
+    width: calc(40% - 20px);
+    background: rgba($text-primary-color-rgb, 0.9);
+    .btn {
+      line-height: 40px;
+      text-align: center;
+    }
+  }
 }

@@ -1,1 +1,11 @@
-<tabletree @parameter="{{ {tableOption:data.tableOption,treeOption:data.treeOption} }}"/>
+<div class="left">
+    <module @name="table" @type="{{ data.tableType }}" @parameter="{{ data.tableOption }}"/>
+</div>
+<div class="{{ data._selectedRole?'right open':'right' }}">
+    <module @name="tree" @type="{{ data.treeType }}" @parameter="{{ data.treeOption }}"/>
+</div>
+{{if data._selectedRole}}
+<div class="bottom">
+    <div class="btn" onclick="{{ save() }}">Save</div>
+</div>
+{{/if}}

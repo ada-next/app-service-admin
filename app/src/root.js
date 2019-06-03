@@ -9,7 +9,7 @@ class Root extends StaticViewGroup {
         this.addChild(Container, {
             parameter: {
                 menuURL: '/api/user/permisions',
-                indexPage: 'pages/table/index.js'
+                indexPage: 'pages/index/index.js'
             }
         });
     }

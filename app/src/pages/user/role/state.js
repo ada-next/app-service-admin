@@ -12,8 +12,7 @@ class RoleService extends Service {
 				title: '角色列表',
 				btns: [
 					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
-					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
-					{ name: "remove", icon: "ada-dashboard-close", action: 'remove' }
+					{ name: "add", icon: "ada-dashboard-add", action: 'add' }
 				],
 				editURL: '/api/role/edit',
 				addURL: '/api/role/add',
@@ -38,8 +37,9 @@ class RoleService extends Service {
 					url: '/api/role/list',
 					cols: [{ title: "Role Name", key: "roleName", width: 200 }, { title: "Role Description", key: "roleDesc", width: 300 }],
 					toolPosition: 'right',
+					multiCheck: false,
+					checkbox:false,
 					tools: [
-						{ title: 'tree', action: 'tree', icon: 'ada-dashboard-graphic_eq' },
 						{ title: 'edit', action: 'edit', icon: 'ada-dashboard-mode_edit' },
 						{ title: 'remove', action: 'remove', icon: "ada-dashboard-close" }
 					]

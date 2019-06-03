@@ -1,4 +1,4 @@
-import { Service } from "adajs";
+import { Service, action } from "adajs";
 import Tree from "ada-dashboard/src/compose/curdtree";
 import Table from "ada-dashboard/src/compose/curd";
 import Input from 'ada-dashboard/src/modules/form/input';
@@ -27,59 +27,50 @@ class StructureService extends Service {
 			topTableOption: {
 				title: '组织角色',
 				btns: [
-					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
-					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
-					{ name: "remove", icon: "ada-dashboard-close", action: 'remove' }
+					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' }
 				],
-				editURL: '',
-				addURL: '',
-				removeURL: '',
-				searchURL: '',
-				detailURL: '/detail.json',
 				borderLeft: false,
-				borderBottom:false,
-				borderRight:false,
+				borderBottom: false,
+				borderRight: false,
+				editURL: '/api/role/edit',
+				addURL: '/api/role/add',
+				removeURL: '/api/role/remove',
+				detailURL: '/detail.json',
 				editFields: [
-					{ type: Input, label: 'username', name: 'username' }
+					{ type: Input, label: 'Role Name', name: 'roleName' },
+					{ type: Input, label: 'Role Description', name: 'roleDesc' }
 				],
 				detailFields: [
 					{ type: Input, key: 'name', label: 'name' },
 					{ type: Input, key: 'age', label: 'age' }
 				],
 				addFields: [
-					{ type: Input, label: 'username', name: 'username' },
-					{ type: Input, label: 'password', name: 'password' }
+					{ type: Input, label: 'Role Name', name: 'roleName' },
+					{ type: Input, label: 'Role Description', name: 'roleDesc' },
 				],
 				filterFields: [
-					{ type: Input, label: 'username', name: 'username' },
-					{ type: Input, label: 'password', name: 'password' }
+					{ type: Input, label: 'Role Name', name: 'roleName' }
 				],
 				tableOption: {
-					url: '/table.json',
-					cols: [{ title: "Name", key: "name", width: 200 }, { title: "Age", key: "age", width: 300 }, { title: "BirthDay", key: "birthday", width: 300 }],
+					url: '/api/role/list',
+					cols: [{ title: "Role Name", key: "roleName", width: 200 }, { title: "Role Description", key: "roleDesc", width: 300 }],
 					toolPosition: 'right',
-					tools: [
-						{ title: 'detail', action: 'detail', icon: "ada-dashboard-description" },
-						{ title: 'edit', action: 'edit', icon: 'ada-dashboard-mode_edit' },
-						{ title: 'remove', action: 'remove', icon: "ada-dashboard-close" }
-					]
+					tools: []
 				}
 			},
 			bottomTableOption: {
 				title: '组织人员',
+				borderLeft: false,
+				borderTop: false,
+				borderRight: false,
 				btns: [
-					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
-					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
-					{ name: "remove", icon: "ada-dashboard-close", action: 'remove' }
+					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' }
 				],
 				editURL: '',
 				addURL: '',
 				removeURL: '',
 				searchURL: '',
 				detailURL: '/detail.json',
-				borderLeft: false,
-				borderTop:false,
-				borderRight:false,
 				editFields: [
 					{ type: Input, label: 'username', name: 'username' }
 				],
@@ -96,21 +87,26 @@ class StructureService extends Service {
 					{ type: Input, label: 'password', name: 'password' }
 				],
 				tableOption: {
-					url: '/table.json',
-					cols: [{ title: "Name", key: "name", width: 200 }, { title: "Age", key: "age", width: 300 }, { title: "BirthDay", key: "birthday", width: 300 }],
+					url: '/api/user/list',
+					cols: [
+						{ title: "UserName", key: "username", width: 200 },
+						{ title: "NickName", key: "nickname", width: 300 }
+					],
 					toolPosition: 'right',
-					tools: [
-						{ title: 'detail', action: 'detail', icon: "ada-dashboard-description" },
-						{ title: 'edit', action: 'edit', icon: 'ada-dashboard-mode_edit' },
-						{ title: 'remove', action: 'remove', icon: "ada-dashboard-close" }
-					]
+					tools: []
 				}
-			}
+			},
+			_currentNode: null
 		};
 	}
 
 	onupdate(current, data) {
 		Object.assign(current, data);
+	}
+
+	@action('set-current-node')
+	setCurrentNode(current, node) {
+		current._currentNode = node;
 	}
 }
 

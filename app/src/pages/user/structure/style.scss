@@ -59,4 +59,31 @@
     box-shadow: 0 0 15px $divider-color;
     z-index: 1;
   }
+  .maskcontainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 390px;
+    z-index: 4;
+    .mask {
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      bottom: 10px;
+      left: 0;
+      background: rgba($divider-color-rgb, 0.2);
+      text-align: center;
+      .desc {
+        line-height: 40px;
+        text-align: center;
+        padding: 0 20px 0 20px;
+        background: $text-primary-color;
+        border-radius: 3px;
+        box-shadow: 0 3px 10px $divider-color;
+        margin: 200px auto;
+        display: inline-block;
+      }
+    }
+  }
 }

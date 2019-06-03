@@ -11,9 +11,9 @@ import Loading from "ada-dashboard/src/modules/loading";
     }
 })
 class Role extends BondViewGroup {
-    @handler('table-tool-tree')
-    tableToolTree({ data }) {
-        let { row } = data;
+    @handler('table-select-change')
+    tableToolTree() {
+        let row = this.getChildByName('table').getChildByName('table').getSelectedRows()[0];
         this.commit('set-select-role', row).then(() => {
             this.addChild(Loading).then(loading => {
                 let tree = this.getChildByName('tree');

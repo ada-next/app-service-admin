@@ -1,6 +1,6 @@
-const { Controller } = require("ada-cloud-util/boost");
+const BaseController = require("./base");
 
-class RoleController extends Controller {
+class RoleController extends BaseController {
     static configure = {
         basePath: "/api/role",
         actions: {

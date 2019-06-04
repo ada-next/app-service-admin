@@ -1,36 +1,30 @@
-const { Controller } = require("ada-cloud-util/boost");
+const BaseController = require("./base");
+const Session = require('./../session');
 
-class TextController extends Controller {
+class TextController extends BaseController {
     static configure = {
         basePath: "/api/user",
         actions: {
-            login: { path: "/login", method: 'get' },
-            permisions: { path: "/permisions", method: 'get' },
-            getAllUsers: { path: "/list", method: 'get' },
-            getAllUserTree: { path: "/tree", method: 'get' },
-            addUserNode: { path: "/tree/add", method: 'post' }
+            login: { path: "/login", method: 'get', needLogin: false },
+            getAllUsers: { path: "/list", method: 'get' }
         }
     }
 
     login({ request }) {
         let { username, password } = request.query;
-    }
-
-    permisions() {
-        return this.service.get('/app-service-uc/user/permisions');
+        return this.service.get('/app-service-uc/user/login', { username, password }).then(({ code, data, message }) => {
+            if (code === 0) {
+                return Session.set(data, data).then(() => this.success(data));
+            } else {
+                return this.error(message);
+            }
+        });
     }
 
     getAllUsers({ request }) {
         return this.service.get('/app-service-uc/user/list', request.query);
     }
 
-    getAllUserTree({ request }) {
-        return this.service.get('/app-service-uc/user/tree', request.query);
-    }
-
-    addUserNode({ request }) {
-        return this.service.post('/app-service-uc/user/tree/add', request.body);
-    }
 }
 
 module.exports = TextController;

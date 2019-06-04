@@ -11,13 +11,13 @@ class StructureService extends Service {
 			bottomTableType: Table,
 			treeOption: {
 				title: '组织机构',
-				url: '/api/user/tree',
+				url: '/api/usertree/map',
 				editURL: '',
 				check: false,
 				editFields: [
 					{ type: Input, label: 'username', name: 'username' }
 				],
-				addURL: '/api/user/tree/add',
+				addURL: '/api/usertree/add',
 				addFields: [
 					{ type: Input, label: '部门名称', name: 'nodeName', required: true },
 					{ type: Input, label: '部门简介', name: 'nodeDesc' }

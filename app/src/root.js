@@ -8,7 +8,7 @@ class Root extends StaticViewGroup {
     onready() {
         this.addChild(Container, {
             parameter: {
-                menuURL: '/api/user/permisions',
+                menuURL: '/api/permision/map',
                 indexPage: 'pages/index/index.js'
             }
         });
